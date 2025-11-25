@@ -1,14 +1,14 @@
 import nltk
 nltk.download('punkt')
-
-from nltk import sent_tokenize
+nltk.download('punkt_tab')
 from nltk import word_tokenize
 
 import pydub
 
-name  = 'QueNotreJoieDemeure'
-with open(name + '.txt', 'r', encoding='utf-8') as file:
+name  = input('Enter filepath of .txt file: ')
+with open(name, 'r', encoding='utf-8') as file:
     data = file.read()
+output_name = name.split('.')[0]
 
 
 def s_to_hms(seconds):
@@ -41,20 +41,8 @@ def formalize_timestamp(i):
         s1[1] = s1[1] + '00'
     if len(s1[1]) == 2:
         s1[1] = s1[1] + '0'
-    
     s1 = s1[0] + "." + s1[1]
     
-    
-    """
-    if i[10] == ' ':
-            i = i[:10] + '0' + i[10:]
-        if i[9] == ' ':
-            i = i[:9] + '00' + i[9:]
-        if len(i) == 26:
-            i = i + '0'
-        if len(i) == 25:
-            i = i + '00'
-    """
     return str(h1 + ":" + m1 + ":" + s1)
 
 
@@ -71,7 +59,7 @@ print("number of seconds (words/3): ", len(words)/3)
 #create subtitles
 i = 1
 seconds_elapsed = 0
-with open(name+'.srt', 'w', encoding='utf-8') as file:
+with open(output_name+'.srt', 'w', encoding='utf-8') as file:
     for (j,sentence) in enumerate(sentences):
         sentence = sentence.strip()
         #create timestamps
@@ -105,4 +93,4 @@ audio_duration = int((seconds_elapsed + seconds_span) * 1000)
 blank_audio = pydub.AudioSegment.silent(duration=audio_duration)
 
 #export blank audio segment to file
-blank_audio.export(name + '.mp3', format='mp3')
+blank_audio.export(output_name + '.mp3', format='mp3')

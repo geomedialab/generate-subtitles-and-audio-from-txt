@@ -1,0 +1,7 @@
+audioop-lts
+click
+joblib
+nltk
+pydub
+regex
+tqdm
