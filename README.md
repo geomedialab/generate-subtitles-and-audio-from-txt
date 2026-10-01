@@ -6,4 +6,4 @@ Takes a text (.txt) file and generates a subtitle file (.srt) with a defined amo
 
 Along with the Python packages listed in *requirements.txt*, you will also need to have [ffmpeg](https://www.ffmpeg.org/) installed.
 
-**See [this wiki](https://github.com/geomedialab/atlascine/wiki/Working-with-text-media) for how to work with text-based media (in .srt format) in Atlascine.
+**See [this wiki](https://github.com/geomedialab/atlascine/wiki/Working-with-text-media) for how to work with text-based media (in .srt format) in Atlascine.**
